@@ -1,10 +1,5 @@
 import { lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-// import HomePage from "pages/HomePage";
-// import MoviePage from "pages/MoviesPage";
-// import MovieDetails from "./MovieDetails/MovieDetails";
-// import Cast from "./Cast/Cast";
-// import Reviews from "./Reviews/Reviews";
 import PageNotFound from "pages/PageNotFound/PageNotFound";
 import Layout from "./Loyaut/Loyaut";
 

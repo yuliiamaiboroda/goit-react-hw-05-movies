@@ -19,17 +19,17 @@ export default function MoviePage (){
     const location = useLocation();
 
     const changeQuery = value =>{
-        setSearchParam(value!==""?{query:value}:{})
+        setSearchParam(value.trim()!==""?{query:value.trim()}:{})
     }
 
 
     const onSubmitForm = e =>{
         e.preventDefault();
-        if(!nameParam){
+        if(!nameParam.trim()){
             Notify.failure("Please fill in the fields");
             return;
         }
-        fetchSearchFilms(nameParam).then(({data})=>{
+        fetchSearchFilms(nameParam.trim()).then(({data})=>{
             if(data.results.length===0){
             Notify.failure(`Sorry, there are not films for serching ${nameParam}`);
         }

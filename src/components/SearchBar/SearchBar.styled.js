@@ -11,6 +11,7 @@ border: 1px #001F54 solid;
 outline: none;
 border-radius: 5px;
 background-color: #EAECFF;
+padding: 5px;
 font-family: 'Abel', sans-serif;
 :focus{
     border-color: #0DA2A2;
