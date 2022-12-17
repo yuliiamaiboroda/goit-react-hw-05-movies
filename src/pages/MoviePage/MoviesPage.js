@@ -19,7 +19,7 @@ export default function MoviePage (){
     const location = useLocation();
 
     const changeQuery = value =>{
-        setSearchParam(value.trim()!==""?{query:value.trim()}:{})
+        setSearchParam(value.trim()!==""?{query:value}:{})
     }
 
 
