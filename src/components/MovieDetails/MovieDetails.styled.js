@@ -11,7 +11,6 @@ display: inline-block;
 padding: 2px 7px;
 text-decoration: none;
 text-align: center;
-border: 1px #001F54 solid;
 border-radius: 5px;
 color: #EAECFF;
 font-size: 14px;

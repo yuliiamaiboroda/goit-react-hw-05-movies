@@ -35,4 +35,5 @@ export const P = styled.p`
 font-family: 'Abel', sans-serif;
 font-size: 16px;
 color: #001F54;
+margin: 0;
 `
