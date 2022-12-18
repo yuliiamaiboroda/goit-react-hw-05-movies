@@ -1,4 +1,4 @@
-import {  useState } from "react"
+import {  useEffect, useState } from "react"
 import { fetchSearchFilms } from "services/useApi";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
@@ -12,16 +12,20 @@ import SearchBox from "components/SearchBar/SearchBar";
 
 export default function MoviePage (){
     const [filmList, setFilmList] = useState([]);
-
     const[searchParam, setSearchParam] =  useSearchParams();
     const nameParam= searchParam.get('query')??"";
 
     const location = useLocation();
 
+    useEffect(()=>{
+        nameParam&&  fetchSearchFilms(nameParam.trim()).then(({data})=>{
+            setFilmList(data.results)});
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
     const changeQuery = value =>{
         setSearchParam(value.trim()!==""?{query:value}:{})
     }
-
 
     const onSubmitForm = e =>{
         e.preventDefault();
@@ -35,13 +39,13 @@ export default function MoviePage (){
         }
             setFilmList(data.results)});   
     }
-   
+
     return(
         <Section>
         <SearchBox onChange={changeQuery}  onSubmitForm={onSubmitForm} value={nameParam}/>
         {filmList&& (<Ul>
             {filmList.map(({id, title})=>(<Li key={id}>
-                <LinkToModal to={`${id}`} state={location} >{title}</LinkToModal>
+                <LinkToModal to={`${id}`} state={{location}} >{title}</LinkToModal>
                 </Li>))} 
         </Ul>)}
         </Section>

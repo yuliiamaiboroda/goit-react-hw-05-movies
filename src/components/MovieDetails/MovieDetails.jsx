@@ -13,7 +13,7 @@ const [film, setFilm] = useState(null);
 const location = useLocation();
 const {id: filmId} = useParams();
 
-const locationBack = useRef(location.state)
+const locationBack = useRef(location.state);
 
 
 useEffect(() => {
@@ -24,7 +24,7 @@ useEffect(() => {
   return (
     <Section>
       {film && <>
-      {locationBack.current && <LinkBack to={`${locationBack.current.pathname}`} >BACK</LinkBack>}
+      {locationBack.current && <LinkBack to={locationBack.current.location} >BACK</LinkBack>}
         <Div>
           <Img src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`} alt={film.title} width='300' />
             <div>

@@ -25,7 +25,7 @@ return (
     <Ul>
     {trandList&& trandList.map(({id, title})=> (
     <Li key={id}>
-        <LinkToModal to={`movies/${id}`} state={location} >{title}</LinkToModal>
+        <LinkToModal to={`movies/${id}`} state={{location}} >{title}</LinkToModal>
     </Li>))}
     </Ul>
     </Section>
